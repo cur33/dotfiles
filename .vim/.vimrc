@@ -1,3 +1,4 @@
+" this is a comment
 " the following is for Vundle
 
 set nocompatible	" required
