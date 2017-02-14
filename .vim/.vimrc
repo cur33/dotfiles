@@ -65,5 +65,3 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 set background=dark
 syntax on
-
-" This is a comment
