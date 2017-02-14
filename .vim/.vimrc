@@ -1,4 +1,3 @@
-" this is a comment
 " the following is for Vundle
 
 set nocompatible	" required
@@ -66,3 +65,5 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 set background=dark
 syntax on
+
+" This is a comment
