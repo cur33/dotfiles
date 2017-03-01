@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/Collin/Desktop/Homeworks/Competitive Learning/Fall 2015/myproblem/problem_statement'
-let g:netrw_dirhist_2='/Users/Collin/Desktop/Homeworks/Competitive Learning/Fall 2015/Week 2'
-let g:netrw_dirhist_3='/Users/Collin/Desktop/Homeworks/CSI4144/s16/problems/logicproblem/data'
-let g:netrw_dirhist_4='/Users/Collin/Desktop/Comp Sci Stuff/Python/Learning Python/CorePython/chp4'
