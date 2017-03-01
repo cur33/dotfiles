@@ -26,10 +26,6 @@ Plugin 'leafgarland/typescript-vim'			" Typescript file format
 call vundle#end()		" required
 filetype plugin indent on	" required
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-
 autocmd BufNewFile,BufRead *.py |
 	\set textwidth=79 |
 	\set expandtab |
