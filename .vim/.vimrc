@@ -13,12 +13,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin
 
 Plugin 'vim-scripts/indentpython.vim'		" Python autoindent
 "Plugin 'scrooloose/syntastic'			" Python syntax checking
 Plugin 'nvie/vim-flake8'			" Python PEP8 checking
+
+Plugin 'leafgarland/typescript-vim'			" Typescript file format
 
 
 " All of your Plugins must be added before the following line
@@ -29,7 +30,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-autocmd BufNewFile,BufRead *.py
+autocmd BufNewFile,BufRead *.py |
 	\set textwidth=79 |
 	\set expandtab |
 	\set autoindent |
@@ -37,19 +38,19 @@ autocmd BufNewFile,BufRead *.py
 	\set encoding=utf-8 |
 	\let python_highlight_all=1
 
+autocmd Filetype py setlocal encoding=utf-8 fileformat=unix textwidth=79 expandtab autoindent python_highlight_all=1
 
-autocmd BufNewFile,BufRead *.js, *.html, *.css
-	\setlocal tabstop=2 |
-	\setlocal softtabstop=2 |
-	\setlocal shiftwidth=2 
+autocmd Filetype html,javascript,php,typescript,json setlocal ts=2 sts=2 sw=2
 
-autocmd BufNewfile,BufRead *.c, *.cpp, *.h, *.java |
-	\set cindent
+autocmd Filetype c,cpp,h,java setlocal ts=4 sts=4 sw=4
+
+"autocmd BufNewfile,BufRead *.c, *.cpp, *.h, *.java |
+	"\set cindent
 
 "au BufNewFile,BufRead *.c, *.cpp, *.h, *.py, *.pyw match BadWhitespace /\s\+$/
 
-" set line numbers and ability to switch between abs and rel line numbers
-set nu
+" set relative line numbers and ability to switch between abs and rel line numbers
+set rnu
 function! NumberToggle()
 	if(&relativenumber == 1)
 		set number
