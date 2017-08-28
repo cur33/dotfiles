@@ -1,44 +1,75 @@
+" Author: Collin U. Rapp
+"
 " Updated for Vim 8.0
+"
+" Some ideas taken from the basic.vim file at 
+" https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 
-filetype plugin indent on	" required
+"""
+" Basic settings
+"""
 
-" autocmd BufNewFile,BufRead *.py |
-	" \set textwidth=79 |
-	" \set expandtab |
-	" \set autoindent |
-	" \set fileformat=unix |
-	" \set encoding=utf-8 |
-	" \let python_highlight_all=1
+" Required
+filetype plugin indent on
 
-"autocmd Filetype python setlocal encoding=utf-8 fileformat=unix textwidth=79 expandtab autoindent python_highlight_all=1
+" Set to auto read when a file is changed from the outside
+" set autoread
 
-"autocmd Filetype python |
-	"\set encoding=utf-8 |
-	"\set expandtab |
-	"\set autoindent |
-	"\set fileformat=unix |
-	"\set textwidth=79 |
-	"\set ts=4 |
-	"\set sts=4 |
-	"\set sw=4
+" Turn on wildmenu for command autocomplete
+set wildmenu
 
-set ts=4
-set sts=4
-set sw=4
+" Turn on ruler
+"set ruler
+
+" Make backspace behave more normally
+set backspace=eol,start,indent
+
+" Make searching more "modern"
+" set incsearch hlsearch
+
+"""
+" Colors and Fonts
+"""
+
+if (!exists("g:syntax_on"))
+	syntax enable
+endif
+
+set background=dark
+set encoding=utf8
+
+"""
+" Text, Tab, and Indent
+"""
+
+" Expand all tabs to spaces
+" set expandtab
+
+" Use sw for tabs at beginning of line, ts and sts for all tabs elsewhere
+" set smarttab
+
+" Set all tabs/indentation to 4 columns by default
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set autoindent
 
-autocmd Filetype python setlocal ts=4 sts=4 sw=4 encoding=utf-8 fileformat=unix textwidth=79 expandtab autoindent 
+"""
+" File specific settings
+"""
 
-autocmd Filetype html,javascript,php,typescript setlocal ts=2 sts=2 sw=2
+" Web dev files should default to 2-columns tabs
+autocmd Filetype html,xml,xsd,javascript,php,typescript setlocal ts=2 sts=2 sw=2
 
-autocmd Filetype c,cpp,h,java setlocal ts=4 sts=4 sw=4
+"autocmd Filetype python setlocal ts=4 sts=4 sw=4 encoding=utf-8 fileformat=unix textwidth=79 expandtab autoindent python_highlight_all=1
 
-"autocmd BufNewfile,BufRead *.c, *.cpp, *.h, *.java |
-	"\set cindent
+"autocmd Filetype c,cpp,h,java setlocal ts=4 sts=4 sw=4 cindent
 
-"au BufNewFile,BufRead *.c, *.cpp, *.h, *.py, *.pyw match BadWhitespace /\s\+$/
+"""
+" Functions
+"""
 
-" set relative line numbers and ability to switch between abs and rel line numbers
+" Set relative line numbers and ability to switch between abs and rel line numbers
 set rnu
 function! NumberToggle()
 	if(&relativenumber == 1)
@@ -53,5 +84,3 @@ nnoremap <C-n> :call NumberToggle()<cr>
 "autocmd InsertEnter * :set number
 "autocmd InsertLeave * :set relativenumber
 
-set background=dark
-syntax on
