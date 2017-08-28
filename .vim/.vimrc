@@ -18,48 +18,21 @@ filetype plugin indent on
 " Turn on wildmenu for command autocomplete
 set wildmenu
 
-" Turn on ruler
-"set ruler
+"these are needed because of Ember
+set backupdir=C:\Users\Collin\vimfiles\backup\\
+set directory=C:\Users\Collin\vimfiles\swap\\
+set undodir=C:\Users\Collin\vimfiles\undo\\
 
-" Make backspace behave more normally
-set backspace=eol,start,indent
-
-" Make searching more "modern"
-" set incsearch hlsearch
-
-"""
-" Colors and Fonts
-"""
-
-if (!exists("g:syntax_on"))
-	syntax enable
-endif
-
-set background=dark
-set encoding=utf8
-
-"""
-" Text, Tab, and Indent
-"""
-
-" Expand all tabs to spaces
-" set expandtab
-
-" Use sw for tabs at beginning of line, ts and sts for all tabs elsewhere
-" set smarttab
-
-" Set all tabs/indentation to 4 columns by default
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set ts=4
+set sts=4
+set sw=4
 set autoindent
 
 """
 " File specific settings
 """
 
-" Web dev files should default to 2-columns tabs
-autocmd Filetype html,xml,xsd,javascript,php,typescript setlocal ts=2 sts=2 sw=2
+autocmd Filetype html,javascript,php,typescript,vue setlocal ts=2 sts=2 sw=2
 
 "autocmd Filetype python setlocal ts=4 sts=4 sw=4 encoding=utf-8 fileformat=unix textwidth=79 expandtab autoindent python_highlight_all=1
 
