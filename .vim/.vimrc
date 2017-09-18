@@ -27,7 +27,7 @@ set autoindent
 " File specific settings
 """
 
-autocmd Filetype python setlocal ts=4 sts=4 sw=4 encoding=utf-8 textwidth=79 expandtab autoindent
+autocmd Filetype python setlocal ts=4 sts=4 sw=4 encoding=utf-8 textwidth=80 expandtab autoindent
 
 autocmd Filetype html,javascript,php,typescript,vue setlocal ts=2 sts=2 sw=2
 
