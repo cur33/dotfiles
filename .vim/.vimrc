@@ -41,14 +41,13 @@ autocmd Filetype c,cpp,h,java setlocal ts=4 sts=4 sw=4
 " Functions
 """
 
-" Set relative line numbers and ability to switch between abs and rel line numbers
-set relativenumber
+" Toggles between 4 combinations of number and relativenumber, in order of use
 function! NumberToggle()
-	if(&relativenumber == 1)
-		set number
-	else
-		set relativenumber
-	endif
+    if(&relativenumber != 1)
+        set number!
+    endif
+    set relativenumber!
+
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 "au FocusLost * :set number
@@ -56,5 +55,6 @@ nnoremap <C-n> :call NumberToggle()<cr>
 "autocmd InsertEnter * :set number
 "autocmd InsertLeave * :set relativenumber
 
+call NumberToggle() " Start with both number styles enabled
 set background=dark
 syntax on
