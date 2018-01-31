@@ -16,7 +16,7 @@ filetype plugin indent on
 " set autoread
 
 " Turn on wildmenu for command autocomplete
-set wildmenu
+" set wildmenu
 
 set ts=4
 set sts=4
@@ -47,8 +47,8 @@ function! NumberToggle()
         set number!
     endif
     set relativenumber!
-
 endfunc
+
 nnoremap <C-n> :call NumberToggle()<cr>
 "au FocusLost * :set number
 "au FocusGained * :set relativenumber
