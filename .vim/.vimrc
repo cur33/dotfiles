@@ -25,14 +25,15 @@ set autoindent
 set expandtab
 
 """
-" File specific settings
+" Language-specific settings
 """
 
+" Python
+" possibly also: fileformat=unix textwidth=79 python_highlight_all=1
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 encoding=utf-8 textwidth=80 expandtab autoindent
 
-autocmd Filetype html,javascript,php,typescript,vue setlocal ts=2 sts=2 sw=2
-
-"autocmd Filetype python setlocal ts=4 sts=4 sw=4 encoding=utf-8 fileformat=unix textwidth=79 expandtab autoindent python_highlight_all=1
+" Web dev
+autocmd Filetype html,javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
 
 " add cindent???
 autocmd Filetype c,cpp,h,java setlocal ts=4 sts=4 sw=4
@@ -41,7 +42,7 @@ autocmd Filetype c,cpp,h,java setlocal ts=4 sts=4 sw=4
 " Functions
 """
 
-" Toggles between 4 combinations of number and relativenumber, in order of use
+" Toggles between 4 combos of number and relativenumber, in order of use
 function! NumberToggle()
     if(&relativenumber != 1)
         set number!
@@ -49,12 +50,13 @@ function! NumberToggle()
     set relativenumber!
 endfunc
 
+" Set key mapping for function & call on startup
 nnoremap <C-n> :call NumberToggle()<cr>
-"au FocusLost * :set number
-"au FocusGained * :set relativenumber
-"autocmd InsertEnter * :set number
-"autocmd InsertLeave * :set relativenumber
+call NumberToggle()
 
-call NumberToggle() " Start with both number styles enabled
+"""
+" Colors and appearance
+"""
+
 set background=dark
 syntax on
