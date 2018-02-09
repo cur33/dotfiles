@@ -5,6 +5,7 @@
 " Some ideas taken from the basic.vim file at 
 " https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 
+
 """
 " Basic settings
 """
@@ -24,18 +25,21 @@ set sw=4
 set autoindent
 set expandtab
 
+
 """
 " Language-specific settings
 """
 
 " Python
 " possibly also: fileformat=unix textwidth=79 python_highlight_all=1
-autocmd Filetype python setlocal ts=4 sts=4 sw=4 encoding=utf-8 textwidth=80 expandtab autoindent
+autocmd Filetype python setlocal encoding=utf-8 textwidth=80
+
+" C-like
+autocmd Filetype c,cpp,h,java setlocal ts=4 sts=4 sw=4
 
 " Web dev
 autocmd Filetype html,javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
 
-autocmd Filetype c,cpp,h,java setlocal ts=4 sts=4 sw=4
 
 """
 " Functions
@@ -52,6 +56,7 @@ endfunc
 " Set key mapping for function & call on startup
 nnoremap <C-n> :call NumberToggle()<cr>
 call NumberToggle()
+
 
 """
 " Colors and appearance
