@@ -34,7 +34,6 @@ autocmd Filetype html,javascript,php,typescript,vue setlocal ts=2 sts=2 sw=2
 
 "autocmd Filetype python setlocal ts=4 sts=4 sw=4 encoding=utf-8 fileformat=unix textwidth=79 expandtab autoindent python_highlight_all=1
 
-" add cindent???
 autocmd Filetype c,cpp,h,java setlocal ts=4 sts=4 sw=4
 
 """
