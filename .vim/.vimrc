@@ -17,6 +17,10 @@ filetype plugin indent on
 
 " Turn on wildmenu for command autocomplete
 " set wildmenu
+" and:
+" set wildmode=longest:full,full
+" or
+" set wildmode=longest:list,full
 
 set ts=4
 set sts=4
