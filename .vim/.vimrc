@@ -82,5 +82,8 @@ if !exists("g:syntax_on")
 endif
 
 set background=dark
+if has("win32")
+    colorscheme koehler
+endif
 "let g:solarized_termcolors=256
-colorscheme solarized
+"colorscheme solarized
