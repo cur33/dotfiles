@@ -77,5 +77,10 @@ call NumberToggle()
 " Colors and appearance
 """
 
+if !exists("g:syntax_on")
+    syntax enable
+endif
+
 set background=dark
-syntax on
+"let g:solarized_termcolors=256
+colorscheme solarized
