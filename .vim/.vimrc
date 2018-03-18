@@ -1,6 +1,6 @@
 " Author: Collin U. Rapp
 "
-" Updated for Vim 8.0
+" Vim config file intended for use with Vim 8
 "
 " Some ideas taken from the basic.vim file at 
 " https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
@@ -23,15 +23,21 @@ filetype plugin indent on
 " or
 " set wildmode=longest:list,full
 
-" set ts=4 sts=4 sw=4
+" Use 4 spaces as tabs for most situations
 set ts=4
 set sts=4
 set sw=4
-" set autoindent expandtab
 set autoindent
 set expandtab
 
-set clipboard=unnamedplus
+" Wrap lines at 80 characters by default
+set textwidth=79
+" t=auto-wrap, c=in comments, r=on return, q=format comments
+" note: may want l and o in the future
+set formatoptions=tcrq
+
+" Because it makes sense
+set encoding=utf-8
 
 
 """
@@ -39,11 +45,12 @@ set clipboard=unnamedplus
 """
 
 " Python
-" possibly also: fileformat=unix textwidth=79 python_highlight_all=1
-autocmd Filetype python setlocal encoding=utf-8 textwidth=80
+" possibly also: fileformat=unix python_highlight_all=1
+" autocmd Filetype python setlocal textwidth=79
 
 " C-like
-autocmd Filetype c,cpp,h,java setlocal ts=4 sts=4 sw=4
+autocmd Filetype c,cpp,h,hpp,java setlocal ts=4 sts=4 sw=4
+autocmd Filetype java setlocal textwidth=99
 
 " Web dev
 autocmd Filetype html,javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
@@ -70,5 +77,13 @@ call NumberToggle()
 " Colors and appearance
 """
 
+if !exists("g:syntax_on")
+    syntax enable
+endif
+
 set background=dark
-syntax on
+if has("win32")
+    colorscheme koehler
+endif
+"let g:solarized_termcolors=256
+"colorscheme solarized
