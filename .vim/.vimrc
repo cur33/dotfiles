@@ -23,8 +23,15 @@ filetype plugin indent on
 " or
 " set wildmode=longest:list,full
 
-set ts=4 sts=4 sw=4
-set autoindent expandtab
+" set ts=4 sts=4 sw=4
+set ts=4
+set sts=4
+set sw=4
+" set autoindent expandtab
+set autoindent
+set expandtab
+
+set clipboard=unnamedplus
 
 
 """
