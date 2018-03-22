@@ -32,8 +32,10 @@ set expandtab
 
 " Wrap lines at 80 characters by default
 set textwidth=79
+
 " t=auto-wrap, c=in comments, r=on return, q=format comments
 " note: may want l and o in the future
+" seems to be overwritten for some langs, like C[++]
 set formatoptions=tcrq
 
 " Because it makes sense
@@ -49,7 +51,7 @@ set encoding=utf-8
 " autocmd Filetype python setlocal textwidth=79
 
 " C-like
-autocmd Filetype c,cpp,h,hpp,java setlocal ts=4 sts=4 sw=4
+" autocmd Filetype c,cpp,h,hpp,java setlocal ts=4 sts=4 sw=4
 autocmd Filetype java setlocal textwidth=99
 
 " Web dev
@@ -62,15 +64,31 @@ autocmd Filetype html,javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
 
 " Toggles between 4 combos of number and relativenumber, in order of use
 function! NumberToggle()
-    if(&relativenumber != 1)
+    if (&relativenumber != 1)
         set number!
     endif
     set relativenumber!
 endfunc
 
-" Set key mapping for function & call on startup
+" Toggles line width column
+function! ColorColumnToggle()
+    if (&colorcolumn == "")
+        set colorcolumn=+1
+    else
+        set colorcolumn=""
+    endif
+endfunc
+
+
+"""
+" Key mappings
+"""
+
+" Map Ctrl-n to toggle line numbers in normal mode
 nnoremap <C-n> :call NumberToggle()<cr>
-call NumberToggle()
+
+" Map Ctrl-h to toggle color column in normal mode
+nnoremap <C-h> :call ColorColumnToggle()<cr>
 
 
 """
@@ -82,7 +100,16 @@ if !exists("g:syntax_on")
 endif
 
 set background=dark
+hi ColorColumn ctermbg=lightgrey
 
 if has("win32")
-    colorscheme koehler
+    colorscheme koehler " Because cmd.exe is lame
 endif
+
+
+"""
+" Initial Calls
+"""
+
+call NumberToggle()
+"call ColorColumnToggle()
