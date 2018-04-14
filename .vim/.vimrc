@@ -31,7 +31,7 @@ set autoindent
 set expandtab
 
 " Wrap lines at 80 characters by default
-set textwidth=79
+set textwidth=80
 
 " t=auto-wrap, c=in comments, r=on return, q=format comments
 " note: may want l and o in the future
@@ -52,7 +52,7 @@ set encoding=utf-8
 
 " C-like
 " autocmd Filetype c,cpp,h,hpp,java setlocal ts=4 sts=4 sw=4
-autocmd Filetype java setlocal textwidth=99
+autocmd Filetype java setlocal textwidth=100
 
 " Web dev
 autocmd Filetype html,javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
