@@ -31,7 +31,7 @@ set autoindent
 set expandtab
 
 " Wrap lines at 80 characters by default
-set textwidth=79
+set textwidth=80
 
 " t=auto-wrap, c=in comments, r=on return, q=format comments
 " note: may want l and o in the future
@@ -95,7 +95,6 @@ if !exists("g:syntax_on")
 endif
 
 set background=dark
-
 hi ColorColumn ctermbg=lightgrey
 
 if has("win32")
