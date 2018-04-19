@@ -46,12 +46,7 @@ set encoding=utf-8
 " Language-specific settings
 """
 
-" Python
-" possibly also: fileformat=unix python_highlight_all=1
-" autocmd Filetype python setlocal textwidth=79
-
-" C-like
-" autocmd Filetype c,cpp,h,hpp,java setlocal ts=4 sts=4 sw=4
+" Java
 autocmd Filetype java setlocal textwidth=99
 
 " Web dev
@@ -100,6 +95,7 @@ if !exists("g:syntax_on")
 endif
 
 set background=dark
+
 hi ColorColumn ctermbg=lightgrey
 
 if has("win32")
@@ -112,4 +108,3 @@ endif
 """
 
 call NumberToggle()
-"call ColorColumnToggle()
