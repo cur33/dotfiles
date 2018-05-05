@@ -84,6 +84,7 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 " Map Ctrl-h to toggle color column in normal mode
 nnoremap <C-h> :call ColorColumnToggle()<cr>
+inoremap <C-h> <C-o>:call ColorColumnToggle()<cr>
 
 
 """
