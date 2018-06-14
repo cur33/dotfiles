@@ -82,9 +82,9 @@ endfunc
 " Map Ctrl-n to toggle line numbers in normal mode
 nnoremap <C-n> :call NumberToggle()<cr>
 
-" Map Ctrl-h to toggle color column in normal mode
+" Map Ctrl-h to toggle color column in normal & insert modes
 nnoremap <C-h> :call ColorColumnToggle()<cr>
-inoremap <C-h> <C-o>:call ColorColumnToggle()<cr>
+inoremap <C-h> <C-O>:call ColorColumnToggle()<cr>
 
 
 """
@@ -104,7 +104,8 @@ endif
 
 
 """
-" Initial Calls
+" Initial calls
 """
 
 call NumberToggle()
+call ColorColumnToggle()
