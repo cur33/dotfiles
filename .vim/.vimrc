@@ -60,7 +60,7 @@ let g:syntastic_mode_map = {
     \ "passive_filetypes": [] }
 
 " Checkers
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['pylint', 'pycodestyle']
 
 " Alias syntastic commands
 cnoreabbrev syncheck SyntasticCheck
@@ -74,7 +74,7 @@ cnoreabbrev synfo SyntasticInfo
 """
 
 " Java
-autocmd Filetype java setlocal textwidth=99
+autocmd Filetype java setlocal textwidth=100
 
 " Web dev
 autocmd Filetype html,javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
