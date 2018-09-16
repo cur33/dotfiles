@@ -46,6 +46,7 @@ set encoding=utf-8
 " Plugin settings
 """
 
+" Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -76,8 +77,11 @@ cnoreabbrev synfo SyntasticInfo
 " Java
 autocmd Filetype java setlocal textwidth=100
 
+" Markup
+autocmd Filetype html,xml,xsd,json setlocal ts=2 sts=2 sw=2
+
 " Web dev
-autocmd Filetype html,javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
 
 
 """
