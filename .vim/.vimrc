@@ -4,14 +4,26 @@
 "
 " Some ideas taken from the basic.vim file at 
 " https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
+"
+" Some ideas and tips taken from this post:
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
 
 """
 " Basic settings
 """
 
-" Required
+" Important and useful
 filetype plugin indent on
+
+" Misc
+set modelines=0
+set ttyfast
+set hidden
+set showmode
+set backspace=indent,eol,start
+" set showcmd
+" set cursorline
 
 " Set to auto read when a file is changed from the outside
 " set autoread
@@ -35,11 +47,21 @@ set textwidth=80
 
 " t=auto-wrap, c=in comments, r=on return, q=format comments
 " note: may want l and o in the future
-" seems to be overwritten for some langs, like C[++]
+" seems to be overwritten for some langs, like C[++], probably by plugins
 set formatoptions=tcrq
 
 " Because it makes sense
 set encoding=utf-8
+
+" Searching
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+
 
 
 """
@@ -150,6 +172,12 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " Map Ctrl-h to toggle color column in normal & insert modes
 nnoremap <C-h> :call ColorColumnToggle()<cr>
 inoremap <C-h> <C-O>:call ColorColumnToggle()<cr>
+
+" Split window
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
 
 
 """
