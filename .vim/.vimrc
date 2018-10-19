@@ -63,12 +63,12 @@ set incsearch
 set showmatch
 
 
-
 """
 " Plugin settings
 """
 
 " Syntastic
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -90,6 +90,14 @@ cnoreabbrev syncheck SyntasticCheck
 cnoreabbrev synreset SyntasticReset
 cnoreabbrev syntoggle SyntasticToggleMode
 cnoreabbrev synfo SyntasticInfo
+
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+" let g:NERDDefaultAlignt = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
 
 
 """
@@ -165,6 +173,9 @@ command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q
 """
 " Key mappings
 """
+
+" Remap leader key
+let mapleader = "'"
 
 " Map Ctrl-n to toggle line numbers in normal mode
 nnoremap <C-n> :call NumberToggle()<cr>
