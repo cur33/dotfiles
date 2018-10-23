@@ -91,6 +91,9 @@ cnoreabbrev synreset SyntasticReset
 cnoreabbrev syntoggle SyntasticToggleMode
 cnoreabbrev synfo SyntasticInfo
 
+" Alias NERD commands
+cnoreabbrev nerdtt NERDTreeToggle
+
 " NERDCommenter
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
