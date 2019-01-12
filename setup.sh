@@ -5,6 +5,10 @@
 # Possibly add option for -u (update if local script newer than existing)
 # Git submodule stuff?
 
+printsection() {
+    printf "\n*** $* ***\n\n"
+}
+
 SCRIPTS_SRC="$( pwd )"/shell-scripts
 SCRIPTS_DEST=/usr/local/bin
 
@@ -13,15 +17,26 @@ if [[ ! -d "$SCRIPTS_DEST" ]]; then
     exit 1
 fi
 
+# printf "\n*** Setting up vim ***\n\n"
+printsection Setting up vim config
+
 VIM_DEST=$HOME/.vim
+VIMRC_DEST=$HOME/.vimrc
+
 if [[ ! -e "$VIM_DEST" ]]; then
     ln -s "$( pwd )"/.vim $HOME/.vim
+else
+    echo "$VIM_DEST" already exists
 fi
 
-VIMRC_DEST=$HOME/.vimrc
 if [[ ! -e "$VIMRC_DEST" ]]; then
     ln -s $HOME/.vim/.vimrc $HOME/.vimrc
+else
+    echo "$VIMRC_DEST" already exists
 fi
+
+# printf "\nSetting up shell scripts...\n\n"
+printsection Setting up shell scripts
 
 scripts=( $( ls "$SCRIPTS_SRC" ) )
 for script in "${scripts[@]}"; do
@@ -44,3 +59,5 @@ for script in "${scripts[@]}"; do
         echo Filename \"$script\" is invalid
     fi
 done
+
+echo
