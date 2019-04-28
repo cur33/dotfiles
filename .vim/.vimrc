@@ -203,11 +203,13 @@ if !exists("g:syntax_on")
 endif
 
 set background=dark
-hi ColorColumn ctermbg=lightgrey
 
 if has("win32")
     colorscheme koehler " Because cmd.exe is lame
 endif
+
+" Has to be last to overwrite chosen scheme
+hi ColorColumn ctermbg=lightgrey
 
 
 """
