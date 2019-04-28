@@ -212,11 +212,6 @@ endif
 
 " Night makes right?
 set background=dark
-<<<<<<< HEAD
-=======
-" Make the character-count column look more better
-hi ColorColumn ctermbg=lightgrey
->>>>>>> 891aaaf0d2ce1403bc380f346af4e87ec0750fe7
 
 if has("win32")
     " Because cmd.exe is lame
