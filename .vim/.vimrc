@@ -1,6 +1,6 @@
 " Author: Collin U. Rapp
 "
-" Vim config file intended for use with Vim 8
+" Vim config file intended for use with Vim 8 (b/c package loading is gr8)
 "
 " Some ideas taken from the basic.vim file at 
 " https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
@@ -16,6 +16,11 @@
 " Important and useful
 filetype plugin indent on
 
+" Show file info in the statusline
+set laststatus=2        " Sacrifice a screen line to always show the statusline
+set statusline+=%t      " Show only the filename
+" set statuslines+=%F   " Show the full filepath
+
 " Misc
 set modelines=0
 set ttyfast
@@ -25,7 +30,7 @@ set backspace=indent,eol,start
 " set showcmd
 " set cursorline
 
-" Set to auto read when a file is changed from the outside
+" Set to auto read when a file is changed externally
 " set autoread
 
 " Turn on wildmenu for command autocomplete
@@ -67,7 +72,7 @@ set showmatch
 " Plugin settings
 """
 
-" Syntastic
+" Syntastic settings
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -91,6 +96,8 @@ cnoreabbrev synreset SyntasticReset
 cnoreabbrev syntoggle SyntasticToggleMode
 cnoreabbrev synfo SyntasticInfo
 
+" NERD settings
+
 " Alias NERD commands
 cnoreabbrev nerdtt NERDTreeToggle
 
@@ -110,7 +117,7 @@ let g:NERDToggleCheckAllLines = 1
 " Java
 autocmd Filetype java setlocal textwidth=100
 
-" Markup
+" Markup, etc.
 autocmd Filetype html,xml,xsd,json setlocal ts=2 sts=2 sw=2
 
 " Web dev
@@ -188,6 +195,7 @@ nnoremap <C-h> :call ColorColumnToggle()<cr>
 inoremap <C-h> <C-O>:call ColorColumnToggle()<cr>
 
 " Split window
+" TODO find better character combos for these
 " nnoremap <C-h> <C-w>h
 " nnoremap <C-j> <C-w>j
 " nnoremap <C-k> <C-w>k
@@ -202,10 +210,17 @@ if !exists("g:syntax_on")
     syntax enable
 endif
 
+" Night makes right?
 set background=dark
+<<<<<<< HEAD
+=======
+" Make the character-count column look more better
+hi ColorColumn ctermbg=lightgrey
+>>>>>>> 891aaaf0d2ce1403bc380f346af4e87ec0750fe7
 
 if has("win32")
-    colorscheme koehler " Because cmd.exe is lame
+    " Because cmd.exe is lame
+    colorscheme koehler
 endif
 
 " Has to be last to overwrite chosen scheme
@@ -213,7 +228,7 @@ hi ColorColumn ctermbg=lightgrey
 
 
 """
-" Initial calls
+" Initial function calls
 """
 
 call NumberToggle()
