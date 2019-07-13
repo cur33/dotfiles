@@ -227,4 +227,4 @@ hi ColorColumn ctermbg=lightgrey
 """
 
 call NumberToggle()
-call ColorColumnToggle()
+"call ColorColumnToggle()
