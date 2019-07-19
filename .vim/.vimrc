@@ -121,7 +121,8 @@ autocmd Filetype java setlocal textwidth=100
 autocmd Filetype html,xml,xsd,json setlocal ts=2 sts=2 sw=2
 
 " Web dev
-autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
+autocmd Filetype typescript,vue setlocal ts=2 sts=2 sw=2
+" autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
 
 
 """
