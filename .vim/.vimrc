@@ -1,6 +1,6 @@
 " Author: Collin U. Rapp
 "
-" Vim config file intended for use with Vim 8 (b/c package loading is gr8)
+" Vim config file intended for use with Vim 8 (b/c built-in package loading is gr8)
 "
 " Some ideas taken from the basic.vim file at 
 " https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
@@ -118,10 +118,14 @@ let g:NERDToggleCheckAllLines = 1
 autocmd Filetype java setlocal textwidth=100
 
 " Markup, etc.
-autocmd Filetype html,xml,xsd,json setlocal ts=2 sts=2 sw=2
+autocmd Filetype xml,xsd,json setlocal ts=2 sts=2 sw=2
+" autocmd Filetype html,xml,xsd,json setlocal ts=2 sts=2 sw=2
 
 " Web dev
 autocmd Filetype typescript,vue setlocal ts=2 sts=2 sw=2
+" Get PHP indenting to work better
+" Taken from: https://stackoverflow.com/questions/459478/correct-indentation-of-html-and-php-using-vim
+autocmd Filetype php setlocal filetype=html syn=php
 " autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
 
 
