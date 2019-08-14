@@ -118,15 +118,15 @@ let g:NERDToggleCheckAllLines = 1
 autocmd Filetype java setlocal textwidth=100
 
 " Markup, etc.
-autocmd Filetype xml,xsd,json setlocal ts=2 sts=2 sw=2
-" autocmd Filetype html,xml,xsd,json setlocal ts=2 sts=2 sw=2
+" autocmd Filetype xml,xsd,json setlocal ts=2 sts=2 sw=2
+autocmd Filetype html,handlebars,xml,xsd,json setlocal ts=2 sts=2 sw=2
 
 " Web dev
-autocmd Filetype typescript,vue setlocal ts=2 sts=2 sw=2
 " Get PHP indenting to work better
 " Taken from: https://stackoverflow.com/questions/459478/correct-indentation-of-html-and-php-using-vim
 autocmd Filetype php setlocal filetype=html syn=php
-" autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
+" autocmd Filetype typescript,vue setlocal ts=2 sts=2 sw=2
 
 
 """
