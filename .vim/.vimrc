@@ -72,6 +72,12 @@ set showmatch
 " Plugin settings
 """
 
+" Vim-polyglot settings
+
+" If set to 1, this will cause trailing brackets to be indented if on their own
+" line (rather than lining up with the opening line)
+" let g:python_pep8_indent_hang_closing = 1
+
 " Syntastic settings
 
 set statusline+=%#warningmsg#
@@ -219,8 +225,7 @@ endif
 set background=dark
 
 if has("win32")
-    " Because cmd.exe is lame
-    colorscheme koehler
+    colorscheme koehler   " Because cmd.exe is lame
 endif
 
 " Has to be last to overwrite chosen scheme
@@ -232,4 +237,4 @@ hi ColorColumn ctermbg=lightgrey
 """
 
 call NumberToggle()
-"call ColorColumnToggle()
+" call ColorColumnToggle()
