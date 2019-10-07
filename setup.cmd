@@ -1,3 +1,5 @@
+@ECHO off
+
 REM xcopy /Y /E /I .vim H:\vimfiles
 REM copy /Y .vim\.vimrc H:\_vimrc
 
