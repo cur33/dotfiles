@@ -1,5 +1,4 @@
-" Author: Collin U. Rapp
-"
+" Author: Collin U. Rapp "
 " Vim config file intended for use with Vim 8 (b/c built-in package loading is gr8)
 "
 " Some ideas taken from the basic.vim file at 
@@ -61,7 +60,7 @@ set encoding=utf-8
 " Searching
 nnoremap / /\v
 vnoremap / /\v
-set ignorecase
+" set ignorecase
 set smartcase
 set gdefault
 set incsearch
@@ -124,15 +123,15 @@ let g:NERDToggleCheckAllLines = 1
 autocmd Filetype java setlocal textwidth=100
 
 " Markup, etc.
-" autocmd Filetype xml,xsd,json setlocal ts=2 sts=2 sw=2
-autocmd Filetype html,handlebars,xml,xsd,json setlocal ts=2 sts=2 sw=2
+autocmd Filetype handlebars,xml,xsd,json setlocal ts=2 sts=2 sw=2
+" autocmd Filetype html,handlebars,xml,xsd,json setlocal ts=2 sts=2 sw=2
 
 " Web dev
 " Get PHP indenting to work better
 " Taken from: https://stackoverflow.com/questions/459478/correct-indentation-of-html-and-php-using-vim
 autocmd Filetype php setlocal filetype=html syn=php
-autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
-" autocmd Filetype typescript,vue setlocal ts=2 sts=2 sw=2
+" autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
+autocmd Filetype typescript,vue setlocal ts=2 sts=2 sw=2
 
 
 """
@@ -237,4 +236,4 @@ hi ColorColumn ctermbg=lightgrey
 """
 
 call NumberToggle()
-" call ColorColumnToggle()
+call ColorColumnToggle()
