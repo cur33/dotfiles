@@ -10,3 +10,6 @@
 [submodule ".vim/pack/my-plugins/start/nerdcommenter"]
 	path = .vim/pack/my-plugins/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule ".vim/pack/my-plugins/start/editorconfig-vim"]
+	path = .vim/pack/my-plugins/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
