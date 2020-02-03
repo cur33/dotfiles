@@ -66,6 +66,15 @@ set gdefault
 set incsearch
 set showmatch
 
+" Enable Vim to jump to the last position when reopening a file
+" Alternatively, disable this and use the normal mode command '" when opening a
+" file
+" Taken from https://stackoverflow.com/a/774599/9201637
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g`\"" | endif
+endif
+
 
 """
 " Plugin settings
