@@ -147,8 +147,10 @@ let g:NERDToggleCheckAllLines = 1
 autocmd Filetype java setlocal textwidth=100
 
 " Markup, etc.
-autocmd Filetype handlebars,xml,xsd,json setlocal ts=2 sts=2 sw=2
-" autocmd Filetype html,handlebars,xml,xsd,json setlocal ts=2 sts=2 sw=2
+autocmd Filetype html,handlebars,xml,xsd,json setlocal ts=2 sts=2 sw=2
+
+" Ruby
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " Web dev
 " Get PHP indenting to work better
