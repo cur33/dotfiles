@@ -82,6 +82,8 @@ set showmatch
 
 " Vim-polyglot settings
 
+" let g:polyglot_disabled = ['html5']
+
 " Python
 " If set to 1, this will cause trailing brackets to be indented if on their own
 " line (rather than lining up with the opening line)
@@ -147,7 +149,10 @@ let g:NERDToggleCheckAllLines = 1
 autocmd Filetype java setlocal textwidth=100
 
 " Markup, etc.
-autocmd Filetype html,handlebars,xml,xsd,json setlocal ts=2 sts=2 sw=2
+autocmd Filetype html,handlebars,xml,xsd,json,eruby setlocal ts=2 sts=2 sw=2
+
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 " Ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
@@ -156,8 +161,8 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " Get PHP indenting to work better
 " Taken from: https://stackoverflow.com/questions/459478/correct-indentation-of-html-and-php-using-vim
 autocmd Filetype php setlocal filetype=html syn=php
-" autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
-autocmd Filetype typescript,vue setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
+" autocmd Filetype typescript,vue setlocal ts=2 sts=2 sw=2
 
 
 """
