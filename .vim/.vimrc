@@ -1,4 +1,4 @@
-" Author: Collin U. Rapp "
+" Author: Collin U. Rapp
 " Vim config file intended for use with Vim 8 (b/c built-in package loading is gr8)
 "
 " Some ideas taken from the basic.vim file at 
@@ -39,6 +39,7 @@ set backspace=indent,eol,start
 " or
 " set wildmode=longest:list,full
 
+" Spacing & indentation
 " Use 4 spaces as tabs for most situations
 set ts=4
 set sts=4
@@ -82,12 +83,16 @@ set showmatch
 
 " Vim-polyglot settings
 
+
+" Vue
+" If only HTML, JavaScript, and CSS are used, no preprocessors are needed, and
+" failing to specify that can slow down the vim-vue plugin
+let g:vue_pre_processors = []
+
+" Sometimes the html5 plugin used by polyglot has issues that vanilla vim
+" doesn't; toggle this as needed
 " let g:polyglot_disabled = ['html5']
 
-" Python
-" If set to 1, this will cause trailing brackets to be indented if on their own
-" line (rather than lining up with the opening line)
-" let g:python_pep8_indent_hang_closing = 1
 
 " Haskell
 " let g:haskell_indent_disable = 1
@@ -102,6 +107,7 @@ let g:haskell_indent_after_bare_where = 0
 " let g:haskell_indent_guard = 2
 " let g:haskell_indent_case_alternative = 1
 " let g:cabal_indent_section = 2
+
 
 " Syntastic settings
 
@@ -127,47 +133,73 @@ cnoreabbrev synreset SyntasticReset
 cnoreabbrev syntoggle SyntasticToggleMode
 cnoreabbrev synfo SyntasticInfo
 
+
 " NERD settings
+
 
 " Alias NERD commands
 cnoreabbrev nerdtt NERDTreeToggle
 
 " NERDCommenter
-let g:NERDSpaceDelims = 1
+" let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 " let g:NERDDefaultAlignt = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
+" This allows for use of NERDCommenter in .vue files
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
+
 
 """
 " Language-specific settings
 """
 
+
 " Java
 autocmd Filetype java setlocal textwidth=100
 
-" Markup, etc.
-autocmd Filetype html,handlebars,xml,xsd,json,eruby setlocal ts=2 sts=2 sw=2
 
+" Markup & Data File Formats
+autocmd Filetype html,handlebars,xml,xsd,json,eruby setlocal ts=2 sts=2 sw=2
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
+
 " Ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+
 
 " Web dev
 " Get PHP indenting to work better
 " Taken from: https://stackoverflow.com/questions/459478/correct-indentation-of-html-and-php-using-vim
 autocmd Filetype php setlocal filetype=html syn=php
 autocmd Filetype javascript,typescript,php,vue setlocal ts=2 sts=2 sw=2
-" autocmd Filetype typescript,vue setlocal ts=2 sts=2 sw=2
 
 
 """
 " Functions and Commands
 """
+
 
 " Toggles between 4 combos of number and relativenumber, in order of use
 function! NumberToggle()
@@ -176,6 +208,7 @@ function! NumberToggle()
     endif
     set relativenumber!
 endfunc
+
 
 " Toggles line width column
 function! ColorColumnToggle()
@@ -186,9 +219,11 @@ function! ColorColumnToggle()
     endif
 endfunc
 
+
 " Taken from http://vim.wikia.com/wiki/Super_retab
 " command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
 " command! -range=% -nargs=0 Space2Tab execute '<line1>,<line2>s#^\( \{'.&ts.'\}\)\+#\=repeat("\t", len(submatch(0))/' . &ts . ')'
+
 
 " Return indent (all whitespace at start of a line), converted from
 " tabs to spaces if what = 1, or from spaces to tabs otherwise.
@@ -203,6 +238,7 @@ function! Indenting(indent, what, cols)
   return result
 endfunction
 
+
 " Convert whitespace used for indenting (before first non-whitespace).
 " what = 0 (convert spaces to tabs), or 1 (convert tabs to spaces).
 " cols = string with number of columns per tab, or empty to use 'tabstop'.
@@ -216,6 +252,7 @@ function! IndentConvert(line1, line2, what, cols)
   call setpos('.', savepos)
 endfunction
 
+
 command! -nargs=? -range=% Space2Tab call IndentConvert(<line1>,<line2>,0,<q-args>)
 command! -nargs=? -range=% Tab2Space call IndentConvert(<line1>,<line2>,1,<q-args>)
 command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q-args>)
@@ -224,6 +261,7 @@ command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q
 """
 " Key mappings
 """
+
 
 " Remap leader key
 let mapleader = "'"
@@ -246,6 +284,7 @@ inoremap <C-h> <C-O>:call ColorColumnToggle()<cr>
 """
 " Colors and appearance
 """
+
 
 if !exists("g:syntax_on")
     syntax enable
