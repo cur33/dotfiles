@@ -175,6 +175,10 @@ endfunction
 """
 
 
+" Crystal
+autocmd Filetype crystal setlocal ts=2 sts=2 sw=2
+
+
 " Java
 autocmd Filetype java setlocal textwidth=100
 
@@ -306,4 +310,5 @@ hi ColorColumn ctermbg=lightgrey
 """
 
 call NumberToggle()
-call ColorColumnToggle()
+" call ColorColumnToggle() " Don't call by default anymore
+
