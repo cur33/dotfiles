@@ -35,7 +35,10 @@ else
     echo "$VIMRC_DEST" already exists
 fi
 
-# printf "\nSetting up shell scripts...\n\n"
+printsection Installing vim plugins
+
+git submodule update --init
+
 printsection Setting up shell scripts
 
 scripts=( $( ls "$SCRIPTS_SRC" ) )
