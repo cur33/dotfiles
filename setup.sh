@@ -3,19 +3,14 @@
 # TODO
 # Add options for -v (verbose), -f (force the symlinks)
 # Possibly add option for -u (update if local script newer than existing)
-# Git submodule stuff?
+
+### Functions ###
 
 printsection() {
     printf "\n*** $* ***\n\n"
 }
 
-SCRIPTS_SRC="$( pwd )"/shell-scripts
-SCRIPTS_DEST=/usr/local/bin
-
-if [[ ! -d "$SCRIPTS_DEST" ]]; then
-    echo \"$SCRIPTS_DEST\" does not exist
-    exit 1
-fi
+### Vim ###
 
 # printf "\n*** Setting up vim ***\n\n"
 printsection Setting up vim config
@@ -39,7 +34,27 @@ printsection Installing vim plugins
 
 git submodule update --init
 
+### Emacs ###
+
+printsection Setting up emacs config
+
+if [[ ! -e "$HOME/.emacs.d" ]]; then
+    ln -s "$( pwd )"/.emacs.d $HOME/.emacs.d
+else
+    echo "$HOME/.emacs.d" already exists
+fi
+
+### Shell scripts ###
+
 printsection Setting up shell scripts
+
+SCRIPTS_SRC="$( pwd )"/shell-scripts
+SCRIPTS_DEST=/usr/local/bin
+
+if [[ ! -d "$SCRIPTS_DEST" ]]; then
+    echo \"$SCRIPTS_DEST\" does not exist
+    exit 1
+fi
 
 scripts=( $( ls "$SCRIPTS_SRC" ) )
 for script in "${scripts[@]}"; do
