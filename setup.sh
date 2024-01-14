@@ -4,11 +4,13 @@
 # Add options for -v (verbose), -f (force the symlinks)
 # Possibly add option for -u (update if local script newer than existing)
 
+
 ### Functions ###
 
 printsection() {
     printf "\n*** $* ***\n\n"
 }
+
 
 ### Vim ###
 
@@ -34,6 +36,11 @@ printsection Installing vim plugins
 
 git submodule update --init
 
+printsection Create helptags for vlime
+
+vim -c ":helptags $HOME/.vim/pack/my-plugins/start/vlime/doc" -c "q"
+
+
 ### Emacs ###
 
 printsection Setting up emacs config
@@ -43,6 +50,7 @@ if [[ ! -e "$HOME/.emacs.d" ]]; then
 else
     echo "$HOME/.emacs.d" already exists
 fi
+
 
 ### Shell scripts ###
 

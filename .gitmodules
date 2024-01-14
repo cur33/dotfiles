@@ -13,3 +13,6 @@
 [submodule ".vim/pack/my-plugins/start/editorconfig-vim"]
 	path = .vim/pack/my-plugins/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule ".vim/pack/my-plugins/start/vlime"]
+	path = .vim/pack/my-plugins/start/vlime
+	url = git@github.com:vlime/vlime.git
