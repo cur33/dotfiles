@@ -16,3 +16,6 @@
 [submodule ".vim/pack/my-plugins/start/vlime"]
 	path = .vim/pack/my-plugins/start/vlime
 	url = git@github.com:vlime/vlime.git
+[submodule ".vim/pack/my-plugins/start/paredit"]
+	path = .vim/pack/my-plugins/start/paredit
+	url = git@github.com:kovisoft/paredit.git
